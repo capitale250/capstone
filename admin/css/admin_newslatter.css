@@ -1,0 +1,31 @@
+.newslatter-container{
+    display: grid;
+    grid-template-columns: 50px 300px 300px 100px;
+    justify-content: center;
+    padding: 10px;
+}
+.newslatter-container>p{
+    padding: 5px;
+    margin: 0;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.newslatter-container img{
+    height: 20px;
+    width: 20px;
+    margin: auto;
+}
+.table-head{
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+}
+@media only screen and (max-width: 800px){
+    .newslatter-container{
+        justify-content: flex-start;
+        padding: 20px 0;
+        overflow: auto;
+    }
+}
