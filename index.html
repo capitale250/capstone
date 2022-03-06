@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="./css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/pop_up.css" />
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-firestore.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="topfunc()" id="topbut">up</button>
+ 
+    <div class="home2">
+      
+        <div class="navv" id="navp">
+            <a href="" class="logo">
+                <h1 class="logotxt">@capitale</h1>
+                  </a>
+                    <div class="navelements" id="myTopnav">
+                        <a href="">home</a>
+                        <a href="#contact">contact</a>
+                        <a href="#projects">portfolio</a>
+                        <a href="#blog">blog</a>
+                        <a href="">about</a>
+                        <a href="admin/login.html">login</a>
+                        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                            <i class="fa fa-bars"></i>
+                          </a>
+                     </div>
+            
+        </div>
+       
+       <section class="home"> 
+            
+            <!--<div class="trans"></div>-->
+            <div class="hero-text">
+                    <h1 style="font-size:50px">ARMSTRONG</h1>
+                    <h2>NGORORANO</h2>
+                    <h3></h3>
+                    <button class="myBtn">Hire me</button>
+            </div>
+            <div class="img">
+                    <img src="images/team-1.jpg" alt="" >
+            </div>
+       </section>
+        
+        
+                
+                
+           
+        
+            
+        
+    </div>
+    <div class="clear" id="projectes">
+            <h1 class="title">Projects</h1>
+            <section class="project-logo">
+                <div>
+                     <a href="javascript:void(0);"  onclick="myFunctiondis()">
+                        <img src="images/icons8-python.gif" alt="" >
+                     </a>
+                </div>
+                <!-- <div>
+                    <a href="javascript:void(0);"  onclick="myFunctiondis()">
+                    
+                       <img src="images/icons8-react.gif" alt="" >
+                    </a>
+                </div>
+                <div>
+                    <img src="images/icons8-node-js-144.png" alt="" srcset="">
+                </div> -->
+            </section>
+            <section class="projects" id="projects">
+                <div>
+                    <img src="images/python.png" alt="" >
+                    <h3>python</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                         Reiciendis omnis 
+                        provident obcaecati tenetur corporis ullam ducimus rem alias iste.
+                         Molestiae tempora amet rem consequatur animi sapiente,
+                         ea esse ipsam aspernatur?</p>
+                </div>
+                <!-- <div>
+                        <img src="images/web1.jpg" alt="" >
+                        <h3>project</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                             Reiciendis omnis 
+                            provident obcaecati tenetur corporis ullam ducimus rem alias iste.
+                             Molestiae tempora amet rem consequatur animi sapiente,
+                             ea esse ipsam aspernatur?</p>
+                    </div>
+                    <div>
+                            <img src="images/web2.jpg" alt="" >
+                            <h3>project</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                 Reiciendis omnis 
+                                provident obcaecati tenetur corporis ullam ducimus rem alias iste.
+                                 Molestiae tempora amet rem consequatur animi sapiente,
+                                 ea esse ipsam aspernatur?</p>
+                    </div>
+                    <div>
+                        <img src="images/web2.jpg" alt="" >
+                        <h3>project</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                             Reiciendis omnis 
+                            provident obcaecati tenetur corporis ullam ducimus rem alias iste.
+                             Molestiae tempora amet rem consequatur animi sapiente,
+                             ea esse ipsam aspernatur?</p>
+                </div> -->
+                
+            </section>
+            <section class="projects" id="projects2">
+                <div>
+                    <img src="images/blog.png" alt="" >
+                    <h3>python</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                         Reiciendis omnis 
+                       ?</p>
+                </div>
+                <div>
+                        <img src="images/WEB-Dining-1.jpg" alt="" >
+                        <h3>project</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                             Reiciendis omnis 
+                            provident obcaecati tenetur corporis ullam ducimus rem alias iste.
+                             Molestiae tempora amet rem consequatur animi sapiente,
+                             ea esse ipsam aspernatur?</p>
+                    </div>
+                    <div>
+                            <img src="images/hardwork.jpg" alt="" >
+                            <h3>project</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                 Reiciendis omnis 
+                                provident obcaecati tenetur corporis ullam ducimus rem alias iste.
+                                 Molestiae tempora amet rem consequatur animi sapiente,
+                                 ea esse ipsam aspernatur?</p>
+                    </div>
+                
+            </section>
+
+    </div>
+    <div class="contact" id="contact">
+        <div class="discription">
+            <h1 class="title">contact</h1>
+            <h3 >(if you have a problem or want to be in touch)</h3>
+        </div>
+        <div class="form">
+            <form action="" class="contacts">
+            <input type="text" name='name' placeholder="fullname" required>
+            <input type="email" name="email" placeholder="email" required>
+            <textarea name="message" id="" cols="30" rows="10" placeholder="message" required></textarea>
+            <button class="btn c-button" type="submit" name="submit" value="" >send</button>
+           </form>
+        </div>
+
+    </div>
+    <div class="blogs" id="blog">
+            <h1 class="title">blog</h1>
+       
+            <section class="blog" id="blog">
+                <div class="b">
+                    <img src="images/one-and-only-gorillas-nest-lodge-exterior-view-rwanda-yellow-zebra-safaris.jpg" alt="" >
+                    <div class="vl">
+                        <a href="blog.html"><h1>Getting a Handle on Handlebars</h1></a>
+                       
+                       <h5>MARCH 04,2015</h4>
+                    </div>
+                    
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                       
+                    
+                </div>
+                <div class="b" >
+                       
+                        <img src="images/qapngb7826.png" alt="" >
+                        <div class="vl">
+                                <a href="blog.html"><h1>Getting a Handle on Handlebars</h1></a>
+                                <h5>MARCH 04,2015</h4>
+                             </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                             Reiciendis omnis 
+                        </p>
+                </div>
+                <div class="b">
+                            <img src="images/rwanda_leila_brewster_photography_0894-720x480.jpg" alt="" >
+                            <div class="vl">
+                                    <a href="blog.html"><h1>Getting a Handle on Handlebars</h1></a>
+                                    <h5>MARCH 04,2015</h4>
+                                 </div>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                 Reiciendis omnis 
+                               </p>
+                    </div>
+                    <div class="b">
+                            <img src="images/rwanda_leila_brewster_photography_0894-720x480.jpg" alt="" >
+                            <div class="vl">
+                                    <a href="blog.html"><h1>Getting a Handle on Handlebars</h1></a>
+                                    <h5>MARCH 04,2015</h4>
+                                 </div>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                 Reiciendis omnis 
+                               </p>
+                    </div>
+                
+            </section>
+        </div>
+    <div class="footer" id="footer">
+            <div class="cont">
+                    <h4 class="">Contact</h4>
+                    <p class=""><i class="fa fa-map-marker"> </i> 123 Street, Musanze, Rwanda</p>
+                    <p class=""><i class="fa fa-phone"> </i> +250 788 609993</p>
+                    <p class=""><i class="fa fa-envelope me-3" onclick="document.getElementById('id01').style.display='block'"></i> info@example.com</p>
+            <!--</div>
+            <div class="icons">-->
+                        <a class="icons" href=""><i class="fa fa-twitter"></i></a>
+                        <a class="icons" href=""><i class="fa fa-facebook-f"></i></a>
+                        <a class="icons" href=""><i class="fa fa-youtube"></i></a>
+                        <a class="icons" href=""><i class="fa fa-linkedin"></i></a>
+            </div>
+
+            <div class="news">
+                        <h4 class="">Newsletter</h4>
+                        <p></p>
+                        <div class="" style="max-width: 400px;">
+                         <form method="POST" class="newslatter-form">
+                            <input class="" name="newslatter"type="text" placeholder="Your email">
+                            <!-- <input class="" type="text" placeholder="Your name"> -->
+                            <button type="submit" class="signup">SignUp</button>
+                         </form>
+                        </div>
+            </div>
+
+    <!-- </div>
+    <div id="id01" class="modal">
+        <span onclick="document.getElementById('id01').style.display='none'"
+            class="close" title="Close Modal"><i class="fa fa-times"></i></span>
+      
+         Modal Content
+        <form class="modal-content animate" >
+
+      
+          <div class="container">
+            
+            <input type="text" placeholder="name" name="uname" required>
+      
+          
+            <input type="text" placeholder="email" name="psw" required>
+            <textarea name="" id="" cols="2" rows="1"></textarea>
+      
+            <button type="submit">Login</button>
+            
+          </div>
+      
+        
+        </form>
+      </div> -->
+      <div id="myModal" class="modal">
+
+        <!-- Modal content <button class="close2">&times;</button> -->
+        <div class="modal-content">
+          <span class="close" onclick="document.getElementById('mymodal')"> </span>
+          <p>Hire Me</p>
+          <form action="mailto:ngororano.amstrongh@gmail.com" method="get" enctype="text/plain">
+              <input type="email" name="email" class="hire-input" placeholder="Your Email">
+              <input type="hidden" name="subject" value="Hiring">
+              <textarea name="body"cols="30" rows="10" placeholder="Your Mesaage"></textarea>
+              <input type="submit" value="Request" class="hire-input requestBtn">
+          </form>
+        </div>
+      
+      </div>
+    <script>
+        mybutt=document.getElementById("topbut")
+        window.onscroll= function(){scrollFunc()};
+
+        function scrollFunc(){
+            if(document.documentElement.scrollTop>20){
+                mybutt.style.display="block";
+            }else{
+                mybutt.style.display="none";
+            }
+        }
+        function topfunc(){
+            document.documentElement.scrollTop=0;
+        }
+
+        function myFunction() {
+          var x = document.getElementById("myTopnav");
+          var y=document.getElementById("navp")
+          if (x.className === "navelements") {
+            x.className = " responsive";
+            y.className="respnav";
+          } else {
+            x.className = "navelements";
+            y.className="navv"
+          }
+        }
+        function myFunctiondis(){
+            
+
+               d1 = document.getElementById("projects");
+               d2 = document.getElementById("projects2");
+               if( d2.style.display == "none" ){
+                 d1.style.display = "none";
+                 d2.style.display = "flex";
+                } else{
+                
+  
+                  d1.style.display = "flex";
+                  d2.style.display = "none";
+               }
+        }
+        var modal = document.getElementById('id01');
+
+
+    
+
+    </script>
+       <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-firestore.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-storage.js"></script>
+    <script src="js/userconfig.js"></script>
+    <script src="js/pop_up.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="admin/js/blog.js"></script>
+    <script src="admin/js/renderskills.js"></script>
+    <script src="admin/js/renderimgs.js"></script>
+
+    
+</body>
+</html>
