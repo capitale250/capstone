@@ -11,12 +11,49 @@ contactForm.addEventListener('submit', (e) =>{
     const email = contactForm['email'].value;
     const message = contactForm['message'].value;
 
-    db.collection('contacts').add({
+    // db.collection('contacts').add({
+    //     name:name,
+    //     email:email,
+    //     message:message,
+    //     ContactDate: new Date()
+    // });
+    const controller = new AbortController()
+
+    // 5 second timeout:
+    const opts={
         name:name,
         email:email,
-        message:message,
-        ContactDate: new Date()
-    });
+        message:message
+    }
+    const timeoutId = setTimeout(() => controller.abort(), 20000)
+    fetch(`https://rest-api-ca.herokuapp.com/api/contacts/add/`
+          ,{
+            signal: controller.signal ,
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+              },
+            body:JSON.stringify(opts)
+          
+        })
+          .then(
+             function(response) {
+                if (response.status !== 200) {
+            console.log('Looks like there was a problem. Status Code: ' +response.status);
+                  return;
+               }
+    
+          // Examine the text in the response
+              response.json().then(function(data) {
+               console.log(data);
+
+            });
+        }
+      )
+      .catch(function(err) {
+        console.log('Fetch Error :', err);
+      });
     contactForm.name.value = '';
     contactForm.email.value = '';
     contactForm.message.value = '';
@@ -33,10 +70,47 @@ newslatter.addEventListener('submit', (e) =>{
 
     const email = newslatter['newslatter'].value;
 
-    db.collection('newslatter').add({
-        Email:email,
-        RequestDate: new Date()
-    });
+    // db.collection('newslatter').add({
+    //     Email:email,
+    //     RequestDate: new Date()
+    // });
+    const controller = new AbortController()
+
+    // 5 second timeout:
+    const opts={
+      
+        email:email,
+       
+    }
+    const timeoutId = setTimeout(() => controller.abort(), 20000)
+    fetch(`https://rest-api-ca.herokuapp.com/api/newsletter/add/`
+          ,{
+            signal: controller.signal ,
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+              },
+            body:JSON.stringify(opts)
+          
+        })
+          .then(
+             function(response) {
+                if (response.status !== 200) {
+            console.log('Looks like there was a problem. Status Code: ' +response.status);
+                  return;
+               }
+    
+          // Examine the text in the response
+              response.json().then(function(data) {
+               console.log(data);
+
+            });
+        }
+      )
+      .catch(function(err) {
+        console.log('Fetch Error :', err);
+      });
     newslatter.newslatter.value = '';
     signUpButton.textContent = 'Signed up'
     setTimeout(function(){signUpButton.textContent = 'sign up'}, 4000)

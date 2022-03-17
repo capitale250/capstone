@@ -19,16 +19,19 @@ function renderBlogCard(doc){
    
     divcontainer.setAttribute('class','b');
     titledate.setAttribute('class','vl')
-    imgc.setAttribute('src', doc.data().Featured_image);
+    let im=`https://raw.githubusercontent.com/capitale250/rest-api-node/version1/src/public${doc.FeaturedImage}`
+    imgc.setAttribute('src', im);
 
-    moreB.setAttribute('href', 'blog.html?id=' + doc.id)
-    moreB.setAttribute('data-id', doc.id)
+    moreB.setAttribute('href', 'blog.html?id=' + doc._id)
+    moreB.setAttribute('data-id', doc._id)
    
 
-    para.textContent = doc.data().Title;
+    para.textContent = doc.Title;
     discr.textContent = 'More..find';
     // discr.textContent = doc.data().Description;
-    pDate.textContent = doc.data().time.toDate().toLocaleTimeString("en-US", options);
+    const date = new Date(doc.PostDate)
+    console.log(date)
+    pDate.textContent = date.toLocaleTimeString("en-US", options);
 
     link.appendChild(para)
     moreB.appendChild(discr)
@@ -47,8 +50,47 @@ function renderBlogCard(doc){
 
 
 // getting data
-db.collection('blogs').get().then((snapshot) => {
-    snapshot.docs.forEach(doc => {
-        renderBlogCard(doc);
+// db.collection('blogs').get().then((snapshot) => {
+//     snapshot.docs.forEach(doc => {
+//         renderBlogCard(doc);
+//     });
+// })
+const controller = new AbortController()
+
+// 5 second timeout:
+const timeoutId = setTimeout(() => controller.abort(), 20000)
+fetch(`https://rest-api-ca.herokuapp.com/api/articles/view/`,{signal: controller.signal })
+.then(
+  function(response) {
+    if (response.status !== 200) {
+      console.log('Looks like there was a problem. Status Code: ' +
+        response.status);
+      return;
+    }
+
+    // Examine the text in the responseid=622dc3e93a2e566099f24aa6
+    response.json().then(function(data) {
+      console.log(data);
+      var cost= data.FeaturedImage
+      data.forEach(element => {
+        renderBlogCard(element )
+        var cost= element.FeaturedImage
+        console.log( cost + " each");
+      });
+    //   renderBlogCard(data)
+      var i = 0;
+      console.log( cost + " each");
+      // FeaturedImage
+      // data.forEach((donut)=> {
+      // var cost= gonut.FeaturedImage
+
+      // console.log(+ cost + " each");
+      // i = i + 1;
+      //  });
+      
     });
-})
+  }
+)
+.catch(function(err) {
+  console.log('Fetch Error :', err);
+});
