@@ -11,9 +11,9 @@ function renderPosts(doc){
     const addIconLink = document.createElement('a');
     const addIcon = document.createElement('i');
 
-    title.textContent= doc.data().Title;
+    title.textContent= doc.Title;
     pTools.setAttribute('class', 'p-tools');
-    editIconLink.setAttribute('href', 'addskills.html?id=' + doc.id);
+    editIconLink.setAttribute('href', 'addskills.html?id=' + doc._id);
     editIcon.setAttribute('src', '../images/pencil.png');
     editIcon.setAttribute('alt', 'Edit');
     deleteIconLink.setAttribute('class', "deletebutton");
@@ -21,32 +21,92 @@ function renderPosts(doc){
     deleteIcon.setAttribute('alt', 'Delete');
     deleteIconLink.setAttribute('data_id', doc.id)
 
-    addIcon.setAttribute('class', 'fa fa-edit');
-    addIcon.setAttribute('alt', 'add');
-    addIconLink.setAttribute('href', 'addskillimg.html?id=' + doc.id)
+    // addIcon.setAttribute('class', 'fa fa-edit');
+    // addIcon.setAttribute('alt', 'add');
+    // addIconLink.setAttribute('href', 'addskillimg.html?id=' + doc.id)
 
     editIconLink.appendChild(editIcon);
-    addIconLink.appendChild(addIcon);
+    // addIconLink.appendChild(addIcon);
     deleteIconLink.appendChild(deleteIcon);
     pTools.appendChild(editIconLink);
 
     pTools.appendChild(deleteIconLink); 
-    pTools.appendChild(addIconLink);
+    // pTools.appendChild(addIconLink);
     container.appendChild(title);
     container.appendChild(pTools);
 
     return deleteIconLink;
 }
-db.collection('skills').get().then((snapshot) => {
-    snapshot.docs.forEach(doc => {
-        deleteIconLink =  renderPosts(doc);
-        deleteIconLink.addEventListener('click', (e) =>{
-            Did = doc.id;
-            if(confirm('Delete This Project? id=' + Did)){
-                e.preventDefault();
-                db.collection('skills').doc(Did).delete();
-            }
+// db.collection('skills').get().then((snapshot) => {
+//     snapshot.docs.forEach(doc => {
+//         deleteIconLink =  renderPosts(doc);
+//         deleteIconLink.addEventListener('click', (e) =>{
+//             Did = doc.id;
+//             if(confirm('Delete This Project? id=' + Did)){
+//                 e.preventDefault();
+//                 db.collection('skills').doc(Did).delete();
+//             }
             
-        });
-    });
-})
+//         });
+//     });
+// })
+fetch(`https://rest-api-ca.herokuapp.com/api/skills/view/`)
+.then(
+  function(response) {
+    if (response.status !== 200) {
+      console.log('Looks like there was a problem. Status Code: ' +
+        response.status);
+      return;
+    }
+
+
+    response.json().then(function(data) {
+
+         data.forEach(doc=>{
+        
+        deleteIcon =  renderPosts(doc);
+
+            deleteIcon.addEventListener('click', (e) =>{
+               
+                if(confirm('username delete '+doc.Email)){
+                    e.preventDefault();
+                    fetch(`https://rest-api-ca.herokuapp.com/api/contacts/delete`,{
+                      
+                      
+                      headers: {
+                            
+                        'authorization':`Bearer ${cat}`,
+                        'Content-Type': 'application/json',
+ 
+                    },
+                      method:'post',
+                      body:JSON.stringify(up),
+
+                    })
+                    .then((res)=>{
+                        console.log(res )
+                        alert('deleted successfully')
+                      
+
+                    })
+                    .catch((err)=>{
+                        console.log('Fetch Error :', err);
+                    })
+                  }
+              })
+        //     console.log(commb)
+        //   })
+        
+      })
+     
+      });
+   
+      
+    })
+.catch(function(err) {
+        console.log('Fetch Error :', err);
+      });
+
+
+
+

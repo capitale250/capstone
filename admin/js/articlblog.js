@@ -74,7 +74,7 @@ function renderBlogCard(doc){
     let pdiscr =document.createElement('p')
 
       let im=`https://raw.githubusercontent.com/capitale250/rest-api-node/version1/src/public${doc.FeaturedImage}`
-    imgpi.setAttribute('src', im);
+    imgpi.setAttribute('src', doc.FeaturedImage);
     console.log(im)
 
     titleb.setAttribute('class','times')

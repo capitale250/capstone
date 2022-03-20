@@ -25,12 +25,14 @@ contactForm.addEventListener('submit', (e) =>{
         email:email,
         message:message
     }
-    const timeoutId = setTimeout(() => controller.abort(), 20000)
+    const cat=localStorage.getItem('token')
+    const timeoutId = setTimeout(() => controller.abort(), 80000)
     fetch(`https://rest-api-ca.herokuapp.com/api/contacts/add/`
           ,{
             signal: controller.signal ,
             method: 'post',
             headers: {
+                'authorization':`Bearer ${cat}`,
                 'Content-Type': 'application/json'
                 // 'Content-Type': 'application/x-www-form-urlencoded',
               },
@@ -82,12 +84,15 @@ newslatter.addEventListener('submit', (e) =>{
         email:email,
        
     }
-    const timeoutId = setTimeout(() => controller.abort(), 20000)
+    const cat=localStorage.getItem('token')
+    console.log('helo')
+    const timeoutId = setTimeout(() => controller.abort(), 80000)
     fetch(`https://rest-api-ca.herokuapp.com/api/newsletter/add/`
           ,{
             signal: controller.signal ,
             method: 'post',
             headers: {
+                'authorization':`Bearer ${cat}`,
                 'Content-Type': 'application/json'
                 // 'Content-Type': 'application/x-www-form-urlencoded',
               },

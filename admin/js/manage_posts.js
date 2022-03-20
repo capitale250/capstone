@@ -50,7 +50,7 @@ const controller = new AbortController()
 // const cat = localStorage.getItem('token');
 
     // 5 second timeout:
-         const timeoutId = setTimeout(() => controller.abort(), 20000)
+         const timeoutId = setTimeout(() => controller.abort(), 800000)
 fetch(`https://rest-api-ca.herokuapp.com/api/articles/view/`
 ,{
   signal: controller.signal ,
