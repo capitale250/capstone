@@ -157,7 +157,7 @@ const controller = new AbortController()
 
 // 5 second timeout:
 const timeoutId = setTimeout(() => controller.abort(), 20000)
-fetch(`https://rest-api-ca.herokuapp.com/api/comments/view/?id=${id}`,{signal: controller.signal })
+fetch(`https://rest-api-ca.herokuapp.com/api/articles/view/?id=${id}`,{signal: controller.signal })
   .then(
     function(response) {
       if (response.status !== 200) {
@@ -170,7 +170,8 @@ fetch(`https://rest-api-ca.herokuapp.com/api/comments/view/?id=${id}`,{signal: c
       response.json().then(function(data) {
         console.log(data);
         var i = 0;
-        data.forEach((donutSummary)=> {
+        
+        data.Comments.forEach((donutSummary)=> {
          renderComments(donutSummary);  
         var donut = donutSummary.Username;
         var cost = donutSummary.Email;
