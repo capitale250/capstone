@@ -13,9 +13,9 @@ function renderPosts(doc){
 
     title.textContent= doc.Title;
     pTools.setAttribute('class', 'p-tools');
-    editIconLink.setAttribute('href', 'addskills.html?id=' + doc._id);
-    editIcon.setAttribute('src', '../images/pencil.png');
-    editIcon.setAttribute('alt', 'Edit');
+    // editIconLink.setAttribute('href', 'addskills.html?id=' + doc._id);
+    // editIcon.setAttribute('src', '../images/pencil.png');
+    // editIcon.setAttribute('alt', 'Edit');
     deleteIconLink.setAttribute('class', "deletebutton");
     deleteIcon.setAttribute('src', '../images/qual.png');
     deleteIcon.setAttribute('alt', 'Delete');
@@ -25,10 +25,10 @@ function renderPosts(doc){
     // addIcon.setAttribute('alt', 'add');
     // addIconLink.setAttribute('href', 'addskillimg.html?id=' + doc.id)
 
-    editIconLink.appendChild(editIcon);
+    // editIconLink.appendChild(editIcon);
     // addIconLink.appendChild(addIcon);
     deleteIconLink.appendChild(deleteIcon);
-    pTools.appendChild(editIconLink);
+    // pTools.appendChild(editIconLink);
 
     pTools.appendChild(deleteIconLink); 
     // pTools.appendChild(addIconLink);
@@ -68,9 +68,9 @@ fetch(`https://rest-api-ca.herokuapp.com/api/skills/view/`)
 
             deleteIcon.addEventListener('click', (e) =>{
                
-                if(confirm('username delete '+doc.Email)){
+                if(confirm('skill title delete '+doc.Title)){
                     e.preventDefault();
-                    fetch(`https://rest-api-ca.herokuapp.com/api/contacts/delete`,{
+                    fetch(`https://rest-api-ca.herokuapp.com/api/skills/delete?id=${doc._id}`,{
                       
                       
                       headers: {
@@ -80,7 +80,7 @@ fetch(`https://rest-api-ca.herokuapp.com/api/skills/view/`)
  
                     },
                       method:'post',
-                      body:JSON.stringify(up),
+                      
 
                     })
                     .then((res)=>{
