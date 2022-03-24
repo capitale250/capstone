@@ -72,6 +72,8 @@ fetch(`https://rest-api-ca.herokuapp.com/api/skills/add/`
       console.log(data);
       form.title.value='';
       form.ft_image.value='';
+      alert("added")
+      location.reload()
  
 
   

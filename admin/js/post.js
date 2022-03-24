@@ -127,6 +127,7 @@ function upload(){
           // Examine the text in the response
               response.json().then(function(data) {
                console.log(data);
+               alert("uploaded")
                form.title.value='';
                form.ft_image.value='';
                form.description.value = '';
@@ -188,6 +189,7 @@ function upload(){
          // Examine the text in the response
              response.json().then(function(data) {
               console.log(data);
+              alert('updated')
               form.title.value='';
               form.ft_image.value='';
               form.description.value = '';

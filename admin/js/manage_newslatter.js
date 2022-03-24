@@ -83,6 +83,7 @@ fetch(`https://rest-api-ca.herokuapp.com/api/newsletter/view`)
                     })
                     .then((res)=>{
                         console.log(res )
+                        location.reload()
                         alert('deleted successfully')
                       
 

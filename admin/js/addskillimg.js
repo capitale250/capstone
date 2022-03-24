@@ -52,6 +52,8 @@ fetch(`https://rest-api-ca.herokuapp.com/api/projects/add/`
       console.log(data);
       imgform.discript.value='';
       imgform.title.value=''
+      alert("added")
+      location.reload()
  
 
   

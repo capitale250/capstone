@@ -77,7 +77,10 @@ fetch(`https://rest-api-ca.herokuapp.com/api/skills/add/`
  // Examine the text in the response
      response.json().then(function(data) {
       console.log(data);
+
       form.title.value='';
+      alert("uploaded")
+      location.reload()
       //form.ft_image.value='';
  
 

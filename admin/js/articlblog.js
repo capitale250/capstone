@@ -60,6 +60,8 @@ commentForm.addEventListener('submit', (e) => {
     commentForm.name.value = ' ';
     commentForm.email.value = '';
     commentForm.comment.value = '';
+      alert("added")
+      location.reload()
 })
 
 function renderBlogCard(doc){
@@ -231,7 +233,7 @@ function renderBmorelogCard(doc){
     divcontainer.setAttribute('class','b');
     titledate.setAttribute('class','vl')
     let im=`https://raw.githubusercontent.com/capitale250/rest-api-node/version1/src/public${doc.FeaturedImage}`
-    imgc.setAttribute('src', im);
+    imgc.setAttribute('src', doc.FeaturedImage);
 
     moreB.setAttribute('href', 'blog.html?id=' + doc._id)
     moreB.setAttribute('data-id', doc._id)

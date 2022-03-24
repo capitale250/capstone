@@ -117,6 +117,8 @@ fetch(`https://rest-api-ca.herokuapp.com/api/articles/view/`,{signal: controller
                         console.log(doc._id)
                         console.log(JSON.stringify(up))
                         console.log(cat)
+                        alert("deleted successfully")
+                        location.reload()
 
                     })
                     .catch((err)=>{

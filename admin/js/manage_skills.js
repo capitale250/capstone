@@ -86,6 +86,7 @@ fetch(`https://rest-api-ca.herokuapp.com/api/skills/view/`)
                     .then((res)=>{
                         console.log(res )
                         alert('deleted successfully')
+                        location.reload()
                       
 
                     })

@@ -104,6 +104,8 @@ fetch(`https://rest-api-ca.herokuapp.com/api/articles/view/`
                       }
                       response.json().then(function(data) {
                         console.log(data);
+                        alert('deleted')
+                        location.reload()
                      });
                      })
                     .catch(function(err) {
