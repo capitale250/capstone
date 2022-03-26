@@ -64,14 +64,18 @@ fetch(`https://rest-api-ca.herokuapp.com/api/contacts/view`)
          data.forEach(doc=>{
             count += 1;
         deleteIcon =   renderContacts(doc, count);
+       
 
             deleteIcon.addEventListener('click', (e) =>{
-                 const up ={
-                    id:doc._id,
-                   
-                 }
+                 
                  if(confirm('username delete '+doc.Email)){
+                  Did = doc._id;
+                  
                     e.preventDefault();
+                    const up ={
+                      id:Did,
+                     
+                     }
                     fetch(`https://rest-api-ca.herokuapp.com/api/contacts/delete`,{
                       
                       
