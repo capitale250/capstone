@@ -73,7 +73,7 @@ function renderBlogCard(doc){
     let pi =document.createElement('p');
     let pii =document.createElement('i')
     let imgpi =document.createElement('img')
-    let pdiscr =document.createElement('p')
+    let pdiscr =document.createElement('h4')
 
       let im=`https://raw.githubusercontent.com/capitale250/rest-api-node/version1/src/public${doc.FeaturedImage}`
     imgpi.setAttribute('src', doc.FeaturedImage);
